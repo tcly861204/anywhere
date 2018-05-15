@@ -1,7 +1,12 @@
 const gulp = require('gulp');
 const gulpBabel = require('gulp-babel');
-gulp.task('default', () =>
-  gulp.src('src/main.js')
+
+gulp.task("js",()=>{
+  return gulp.src('src/*.js')
     .pipe(gulpBabel())
-    .pipe(gulp.dest('dist'))
-);
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('default', () =>{
+  gulp.watch('src/*.js',['js']);
+});
